@@ -1,16 +1,29 @@
 import java.util.*;
 import java.awt.*;
 import java.awt.geom.*;
+/**
+The SlowCreature class extends the Creature class and adds more functionality such as different movement and the appearence of the creature is also changed
 
+*/
 public class SlowCreature extends Creature{
 	private int speed;
 	private int direction;
+	/**
+	sets the x, y, width and height values of the slow creature
+	@pram x the x coordinate of the slow creature 
+	@pram y the y coordinate of the slow creatures
+	@pram width the width of the slow creature
+	@pram height the height of the slow creature
+	*/
 	public SlowCreature (int x, int y, int width, int height){
 		super(x, y, width, height);
 		direction = 1;
-		speed =1;
+		speed =2;
 	}
-	
+	/**
+	Draws the slow creature using polygons and arcs
+	@pram g2 the Graphics2D to draw the shapes on 
+	*/
 	public void draw(Graphics2D g2){
 		g2.setColor(Color.red);
 		int arcStart = 0;
@@ -34,7 +47,10 @@ public class SlowCreature extends Creature{
 		g2.fill(leg3);
 		
 		
-	}	
+	}
+	/**
+	Moves the slow creature in the x direction
+	*/
 	public void move(){
 		if(getX() >= PacmanViewer.FRAME_WIDTH-getWidth()){
 			direction = -1;
